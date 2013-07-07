@@ -1,0 +1,23 @@
+application: cpumeasure
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /
+  static_files: cpuquery.html
+  upload: cpuquery.html
+
+- url: /cpustore
+  script: cpustore.app
+
+- url: /cpuquery
+  script: cpuquery.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
